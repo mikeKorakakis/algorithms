@@ -18,6 +18,7 @@ export const styles = () => ({
       flex: 1,
       background: "#f7f5f5",
       color: "black",
+      padding: "60px"
     },
     link: {
         textDecoration: "none" as any,
@@ -26,7 +27,10 @@ export const styles = () => ({
         color: "black",
         textDecoration: "none" as any
         }
-    }
+    },
+    nested: {
+        paddingLeft: '32px',
+      },
   
   
   });

@@ -3,7 +3,7 @@ import {
 	Divider,
 	Drawer,
 	IconButton,
-    Link,
+	Link,
 	List,
 	ListItem,
 	ListItemIcon,
@@ -12,46 +12,79 @@ import {
 	Toolbar,
 	Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "./styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import MailIcon from "@material-ui/icons/Mail";
-import LooksOne from "@material-ui/icons/LooksOne";
-import LooksTwo from "@material-ui/icons/LooksTwo";
-import LooksThree from "@material-ui/icons/Looks3";
-import LooksFour from "@material-ui/icons/Looks4";
-import LooksFive from "@material-ui/icons/Looks5";
-import LooksSix from "@material-ui/icons/Looks6";
+import LooksOne from "@material-ui/icons/Filter1";
+import LooksTwo from "@material-ui/icons/Filter2";
+import LooksThree from "@material-ui/icons/Filter3";
+import LooksFour from "@material-ui/icons/Filter4";
+import LooksFive from "@material-ui/icons/Filter5";
+import LooksSix from "@material-ui/icons/Filter6";
+import LooksSeven from "@material-ui/icons/Filter7";
+import LooksEight from "@material-ui/icons/Filter8";
+import LooksNine from "@material-ui/icons/Filter9";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import Collapse from "@material-ui/core/Collapse";
+import StarBorder from "@material-ui/icons/StarBorder";
 import { Link as RouterLink } from "react-router-dom";
 
-const section = [{label:"one", link: "/"}, {label:"two", link: "/"},{label:"three", link: "/"},];
+const section = [
+	{ label: "one", link: "/" },
+	{ label: "two", link: "/" },
+	{ label: "three", link: "/" },
+];
+
+const subSection = [
+	[{ label: "BigO", link: "/bigo" }],
+	[{ label: "subTwo", link: "/" }],
+	[{ label: "subThree", link: "/" }],
+];
 const icons = (key: string, index: number) => {
-	let icon = <LooksOne key={key} />
-    switch (index){
-      case 1:
-         icon = <LooksOne key={key} />
-         break;
-      case 2:
-            icon = <LooksTwo key={key} />
-         break;
-         case 3:
-                icon = <LooksThree key={key} />
-         break;
-         case 4:
-                icon = <LooksFour key={key} />
-         break;
-         case 5:
-                    icon = <LooksFive key={key} />
-            break;
-    }
+	let icon = <LooksOne key={key} />;
+	switch (index) {
+		case 0:
+			icon = <LooksOne key={key} />;
+			break;
+		case 1:
+			icon = <LooksTwo key={key} />;
+			break;
+		case 2:
+			icon = <LooksThree key={key} />;
+			break;
+		case 3:
+			icon = <LooksFour key={key} />;
+			break;
+		case 4:
+			icon = <LooksFive key={key} />;
+			break;
+		case 5:
+			icon = <LooksSix key={key} />;
+			break;
+		case 6:
+			icon = <LooksSeven key={key} />;
+			break;
+		case 7:
+			icon = <LooksEight key={key} />;
+			break;
+		case 8:
+			icon = <LooksNine key={key} />;
+			break;
+	}
 
-    return icon
-	
-}
+	return icon;
+};
 
-const useStyles = makeStyles(styles);
 const Layout = ({ children }: any) => {
+	const useStyles = makeStyles(styles);
 	const classes = useStyles();
+	const [open, setOpen] = useState(false);
+
+	const handleClick = () => {
+		setOpen(!open);
+	};
 	return (
 		<div className={classes.root}>
 			<AppBar>
@@ -74,17 +107,50 @@ const Layout = ({ children }: any) => {
 					<Divider />
 					<List>
 						{section.map((sec, index) => (
-                            <Link   key={`link${index}`}  className={classes.link} component={RouterLink} to={sec.link}>
-							<ListItem button >
-								<ListItemIcon >
-                                    <div>
-									{icons(`$icon${index}`, index)}
-                                    </div>
-								</ListItemIcon>
-								<ListItemText  primary={sec.label} />
-							</ListItem>
+							<>
+                            <Link
+											key={`link${index}`}
+											className={classes.link}
+											component={RouterLink}
+											to={sec.link}
+										>
+								<ListItem button onClick={handleClick}>
+									<ListItemIcon>
+										<div>
+											{icons(`$icon${index}`, index)}
+										</div>
+									</ListItemIcon>
+									<ListItemText primary={sec.label} />
+									{open ? <ExpandLess /> : <ExpandMore />}
+								</ListItem>
                             </Link>
-                           
+								<Collapse
+									in={open}
+									timeout="auto"
+									unmountOnExit
+								>
+									<List component="div" disablePadding>
+                                    {subSection[index].map((subSec, i) => (
+										<Link
+											key={`sublink${i}`}
+											className={classes.link}
+											component={RouterLink}
+											to={subSec.link}
+										>
+											<ListItem
+												button
+												className={classes.nested}
+											>
+												<ListItemIcon>
+													<StarBorder />
+												</ListItemIcon>
+												<ListItemText primary={subSec.label} />
+											</ListItem>
+										</Link>
+                                    ))}
+									</List>
+								</Collapse>
+							</>
 						))}
 					</List>
 					<Divider />
@@ -94,6 +160,5 @@ const Layout = ({ children }: any) => {
 		</div>
 	);
 };
-
 
 export default Layout;

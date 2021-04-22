@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./components/Home";
+import BigO from "./components/BigO";
+import {Home} from "./components/Home/index";
 import Layout from "./layout";
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
 		<main>
 			<Switch>
                 <Layout>
-				<Route path="/" component={Home} exact />
+               
+				<Route path="/bigo" component={BigO} exact />
 				{/* <Route path="/about" component={About} />
 				<Route path="/shop" component={Shop} /> */}
                 </Layout>
