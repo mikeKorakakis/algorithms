@@ -25,13 +25,29 @@ import LooksSix from "@material-ui/icons/Looks6";
 import { Link as RouterLink } from "react-router-dom";
 
 const section = [{label:"one", link: "/"}, {label:"two", link: "/"},{label:"three", link: "/"},];
-const icons = [ 
-	<LooksOne />,
-	<LooksTwo />,
-	<LooksThree />,
-	<LooksFour />,
-	<LooksFive />,
-];
+const icons = (key: string, index: number) => {
+	let icon = <LooksOne key={key} />
+    switch (index){
+      case 1:
+         icon = <LooksOne key={key} />
+         break;
+      case 2:
+            icon = <LooksTwo key={key} />
+         break;
+         case 3:
+                icon = <LooksThree key={key} />
+         break;
+         case 4:
+                icon = <LooksFour key={key} />
+         break;
+         case 5:
+                    icon = <LooksFive key={key} />
+            break;
+    }
+
+    return icon
+	
+}
 
 const useStyles = makeStyles(styles);
 const Layout = ({ children }: any) => {
@@ -58,14 +74,17 @@ const Layout = ({ children }: any) => {
 					<Divider />
 					<List>
 						{section.map((sec, index) => (
-                            <Link  className={classes.link} component={RouterLink} to={sec.link}>
-							<ListItem button key={sec.label}>
-								<ListItemIcon>
-									{[icons[index]]}
+                            <Link   key={`link${index}`}  className={classes.link} component={RouterLink} to={sec.link}>
+							<ListItem button >
+								<ListItemIcon >
+                                    <div>
+									{icons(`$icon${index}`, index)}
+                                    </div>
 								</ListItemIcon>
-								<ListItemText primary={sec.label} />
+								<ListItemText  primary={sec.label} />
 							</ListItem>
                             </Link>
+                           
 						))}
 					</List>
 					<Divider />
@@ -75,5 +94,6 @@ const Layout = ({ children }: any) => {
 		</div>
 	);
 };
+
 
 export default Layout;
