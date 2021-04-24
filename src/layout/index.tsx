@@ -32,14 +32,20 @@ import StarBorder from "@material-ui/icons/StarBorder";
 import { Link as RouterLink } from "react-router-dom";
 
 const section = [
-	{ label: "one", link: "/" },
-	{ label: "two", link: "/" },
+	{ label: "Big O Notation", link: "/" },
+	{ label: "Problem Solving", link: "/" },
 	{ label: "three", link: "/" },
 ];
 
 const subSection = [
-	[{ label: "BigO", link: "/bigo" }],
-	[{ label: "subTwo", link: "/" }],
+	[
+		{ label: "BigO", link: "/bigo" },
+		{ label: "Performance of Arrays & Objects", link: "/performance" },
+	],
+	[
+		{ label: "Problem Solving", link: "/problem_solving" },
+		{ label: "Problem Solving Patterns", link: "/problem_solving_patterns" },
+	],
 	[{ label: "subThree", link: "/" }],
 ];
 const icons = (key: string, index: number) => {
@@ -107,50 +113,52 @@ const Layout = ({ children }: any) => {
 					<Divider />
 					<List>
 						{section.map((sec, index) => (
-							<>
-                            <Link
-											key={`link${index}`}
-											className={classes.link}
-											component={RouterLink}
-											to={sec.link}
-										>
-								<ListItem button onClick={handleClick}>
-									<ListItemIcon>
-										<div>
-											{icons(`$icon${index}`, index)}
-										</div>
-									</ListItemIcon>
-									<ListItemText primary={sec.label} />
-									{open ? <ExpandLess /> : <ExpandMore />}
-								</ListItem>
-                            </Link>
+							<div key={index}>
+								<Link
+									key={`link${index}`}
+									className={classes.link}
+									component={RouterLink}
+									to={sec.link}
+								>
+									<ListItem button onClick={handleClick}>
+										<ListItemIcon>
+											<div>
+												{icons(`$icon${index}`, index)}
+											</div>
+										</ListItemIcon>
+										<ListItemText primary={sec.label} />
+										{open ? <ExpandLess /> : <ExpandMore />}
+									</ListItem>
+								</Link>
 								<Collapse
 									in={open}
 									timeout="auto"
 									unmountOnExit
 								>
 									<List component="div" disablePadding>
-                                    {subSection[index].map((subSec, i) => (
-										<Link
-											key={`sublink${i}`}
-											className={classes.link}
-											component={RouterLink}
-											to={subSec.link}
-										>
-											<ListItem
-												button
-												className={classes.nested}
+										{subSection[index].map((subSec, i) => (
+											<Link
+												key={`sublink${i}`}
+												className={classes.link}
+												component={RouterLink}
+												to={subSec.link}
 											>
-												<ListItemIcon>
-													<StarBorder />
-												</ListItemIcon>
-												<ListItemText primary={subSec.label} />
-											</ListItem>
-										</Link>
-                                    ))}
+												<ListItem
+													button
+													className={classes.nested}
+												>
+													<ListItemIcon>
+														<StarBorder />
+													</ListItemIcon>
+													<ListItemText
+														primary={subSec.label}
+													/>
+												</ListItem>
+											</Link>
+										))}
 									</List>
 								</Collapse>
-							</>
+							</div>
 						))}
 					</List>
 					<Divider />
