@@ -4,53 +4,52 @@ import jsonParse from "../../utils/jsonParse";
 import parseFunction from "../../utils/parseFunction";
 
 export interface Props {
-    inputCount: number;
-    children?: string;
+	inputCount: number;
+	children?: string;
+    defaultValues?: any[];
 }
 
-const FunctionExcecution: React.FC<Props> = ({inputCount = 2, children}) => {
-	const [values, setValues] = useState<any[]>(["[1,2,3]"]);
-	const [text2, setText2] = useState<string>("[1,4,9]");
-	const funct = `function same(arr1, arr2){
-        console.le
-        if (arr1.length !== arr2.length){
-            return false;
-        }
-        for (let i = 0; i < arr1.length; i++){
-            let correctIndex = arr2.indexOf(arr1[i] ** 2);
-            console.log(correctIndex)
-            if (correctIndex === -1) {
-                return false;
-            }
-            arr2.splice(correctIndex,1)
-        }
-        return true
-    }`;
+const FunctionExcecution: React.FC<Props> = ({ inputCount = 2, defaultValues, children }) => {
+	const [values, setValues] = useState<any[]>(defaultValues || []);
+	const [funct, setFunct] = useState(children || "");
+
+	const input = values.map((value) => jsonParse(value));
 
 	const fn = parseFunction(funct);
 	return (
 		<Grid container>
 			<Grid item xs={6}>
-				<pre>{funct}</pre>
+            <TextField
+            style={{width: "100%", backgroundColor:"white"}}
+            variant="outlined"
+            multiline
+            value={funct}
+            onChange={event => setFunct(event?.target?.value)}
+            >
+
+            </TextField>
+				{/* <pre>{funct}</pre> */}
 			</Grid>
-			<Grid item xs={6} style={{paddingLeft: "20px"}} >
+			<Grid item xs={6} style={{ paddingLeft: "20px" }}>
 				<Grid container direction="column" alignItems="flex-start">
 					<Grid container alignItems="flex-start">
-                        {
-                           Array(inputCount).map((value, i) => (
-                               <TextField
-                               label={`text${i}`}
-                               style={{ width: "100px", margin: "20px" }}
-                               value={values[i]}
-                               // onChange={(event) => setText(event?.target?.value)}
-                           ></TextField>
-                           ))
-                        }
+						{Array.from(Array(inputCount).keys()).map((_, i) => (
+							<TextField
+								key={i}
+								label={`Input ${i}`}
+								style={{ width: "100px", margin: "20px" }}
+								value={values[i]}
+								onChange={(event) => {
+									values[i] = event?.target?.value;
+									setValues([...values]);
+								}}
+							></TextField>
+						))}
 					</Grid>
 					<Box style={{ paddingLeft: "20px" }}>
 						<Typography variant="subtitle2" gutterBottom>
-                        {"result --> "}
-							{/* {JSON.stringify(fn(jsonParse(text), jsonParse(text2)))} */}
+							{"result --> "}
+							{JSON.stringify(fn(...input))}
 						</Typography>
 					</Box>
 				</Grid>

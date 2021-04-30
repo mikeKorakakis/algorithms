@@ -63,40 +63,24 @@ const ProblemSolvingPatterns: React.FC<Props> = () => {
 					same([1,2,3], [1,9]) //false <br></br>
 					same([1,2,1], [4,4,1]) //false <br></br>
 					<br></br>A Naive Solution
-					<pre>
-						{`
-function same(arr1, arr2){
-    if (arr1.length !== arr2.length){
-        return false;
-    }
-    for (let i = 0; i < arr1.length; i++){
-        let correctIndex = arr2.indexOf(arr1[i] ** 2)
-        if (correct Index === -1) {
-            return false;
-        }
-        arr2.splice(correctIndex,1)
-    }
-    return true
-}
-`}
-					</pre>
+				
 				</Typography>
-                <FunctionExcecution inputCount={2}>
-{`
-function same(arr1, arr2){
+                <FunctionExcecution inputCount={2} defaultValues={["[1,2,3]", "[1,4,9]"]}>
+{`function same(arr1, arr2){
+        
     if (arr1.length !== arr2.length){
         return false;
     }
     for (let i = 0; i < arr1.length; i++){
-        let correctIndex = arr2.indexOf(arr1[i] ** 2)
-        if (correct Index === -1) {
+        let correctIndex = arr2.indexOf(arr1[i] ** 2);
+        console.log(correctIndex)
+        if (correctIndex === -1) {
             return false;
         }
         arr2.splice(correctIndex,1)
     }
     return true
-}
-`}
+}`}
 </FunctionExcecution>
 			</Box>
 		</>
