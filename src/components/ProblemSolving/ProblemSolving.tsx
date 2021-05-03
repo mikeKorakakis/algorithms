@@ -127,17 +127,17 @@ const ProblemSolving: React.FC = () => {
 					function charCount(str)
 					{
 						<ul>
-							<li>//make object to return at end</li>
+							<li>make object to return at end</li>
 							<li>
-								//loop over string for each character...
+								loop over string for each character...
 								<br></br>
-								//if char is a key in object, add one to the
+								if char is a key in object, add one to the
 								count<br></br>
-								//if char is no in object, add it to object and
-								set value to 1 //if char is something else
+								if char is no in object, add it to object and
+								set value to 1 if char is something else
 								(space, period, etc.) don't do anything
 							</li>
-							<li>//return object at end</li>
+							<li>return object at end</li>
 						</ul>
 					}
 				</Typography>
@@ -153,10 +153,10 @@ const ProblemSolving: React.FC = () => {
 					function charCount(str)
 					{
 						<ul>
-							<li>//make object to return at end</li>
+							<li>make object to return at end</li>
 							{` var result = {}`}
 							<li>
-								//loop over string for each character...
+								loop over string for each character...
 								<pre>
 									{`for(var i = 0; i < str.length; i++){
 var char = str[i]
@@ -171,14 +171,14 @@ elseif{
 }`}
 								</pre>
 								<br></br>
-								//if char is a key in object, add one to the
+								if char is a key in object, add one to the
 								count<br></br>
-								//if char is no in object, add it to object and
+								if char is no in object, add it to object and
 								set value to 1<br></br>
-								//if char is something else (space, period,
+								if char is something else (space, period,
 								etc.) don't do anything
 							</li>
-							<li>//return object at end</li>
+							<li>return object at end</li>
 						</ul>
 					}
 				</Typography>
