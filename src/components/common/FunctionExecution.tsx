@@ -1,12 +1,13 @@
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import jsonParse from "../../utils/jsonParse";
 import parseFunction from "../../utils/parseFunction";
 
 export interface Props {
 	inputCount: number;
 	children?: string;
-    defaultValues?: any[];
+    defaultValues?: any;
 }
 
 const FunctionExcecution: React.FC<Props> = ({ inputCount = 2, defaultValues, children }) => {
@@ -14,8 +15,16 @@ const FunctionExcecution: React.FC<Props> = ({ inputCount = 2, defaultValues, ch
 	const [funct, setFunct] = useState(children || "");
 
 	const input = values.map((value) => jsonParse(value));
+	let fn:any = () => {}; 
+    try {
+        fn = parseFunction(funct);
+    }catch(err){
+        console.log(err.message)
+        toast.error(err.message)
+    }
 
-	const fn = parseFunction(funct);
+    
+    
 	return (
 		<Grid container>
 			<Grid item xs={6}>

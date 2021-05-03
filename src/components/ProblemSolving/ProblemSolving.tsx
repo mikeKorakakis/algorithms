@@ -1,43 +1,12 @@
 import {
 	Box,
-	Grid,
-	TextField,
 	Typography,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
+import FunctionExcecution from "../common/FunctionExecution";
 
-
-function isAlphaNumeric(str: string) {
-	var code, i, len;
-
-	for (i = 0, len = str.length; i < len; i++) {
-		code = str.charCodeAt(i);
-		if (
-			!(code > 47 && code < 58) && // numeric (0-9)
-			!(code > 64 && code < 91) && // upper alpha (A-Z)
-			!(code > 96 && code < 123)
-		) {
-			// lower alpha (a-z)
-			return false;
-		}
-	}
-	return true;
-}
-
-function charCount(str: string) {
-	var obj: any = {};
-	for (var char of str) {
-		if (isAlphaNumeric(char)) {
-			char = char.toLowerCase();
-			obj[char] = ++obj[char] || 1;
-		}
-	}
-    return obj;
-}
 
 const ProblemSolving: React.FC = () => {
-	const [text, setText] = useState("");
-
 
 	return (
 		<>
@@ -284,38 +253,49 @@ return true;
                         `}
 					</pre>
 				</Typography>
-                <Grid container>
-				<Grid item xs={6}>
-					<pre>
-						{`function charCount(str){
+<FunctionExcecution inputCount={1} defaultValues={["hello"]}>
+						{`
+function charCount(str){
+    
+let isAlphaNumeric = (str) => {
+    var code, i, len;
+    
+    for (i = 0, len = str.length; i < len; i++) {
+        code = str.charCodeAt(i);
+        if (!(code > 47 && code < 58) && // numeric (0-9)
+            !(code > 64 && code < 91) && // upper alpha (A-Z)
+            !(code > 96 && code < 123)) { // lower alpha (a-z)
+        return false;
+        }
+    }
+    return true;
+};
+
 var obj = {};
-for(var char of str){
-    if (isAlphanumeric(char)){
+    for(var char of str){
+    if (isAlphaNumeric(char)){
     char = char.toLowerCase();
     obj[char] = ++obj[char] || 1;
-}
+    }
+    }
 return obj;
 
 }`}
-					</pre>
-				</Grid>
-				<Grid item xs={6}>
-					<Grid container direction="column" alignItems="flex-start">
-						<TextField
-							style={{ width: "100px", margin: "20px" }}
-							value={text}
-							onChange={(event) =>
-								setText(event?.target?.value)
-							}
-						></TextField>
-						<Box style={{ paddingLeft: "20px" }}>
-							<Typography variant="subtitle2" gutterBottom>
-								{JSON.stringify(charCount(text))}
-							</Typography>
-						</Box>
-					</Grid>
-				</Grid>
-			</Grid>
+	</FunctionExcecution>
+            <Typography variant="h6" gutterBottom>
+					Some Patterns
+				</Typography>
+				<Typography variant="subtitle2" gutterBottom>
+					<ul>
+						<li>Frequency Counter.</li>
+						<li>Multiple Pointers.</li>
+						<li>Sliding Window.</li>
+						<li>Devide and Conquer.</li>
+						<li>Dynamic Programming.</li>
+						<li>Greedy Algorigthms.</li>
+						<li>BackTracking.</li>
+					</ul>
+				</Typography>
 			</Box>
 		</>
 	);

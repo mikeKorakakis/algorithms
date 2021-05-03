@@ -2,20 +2,11 @@ import {
 	Box,
 	Typography,
 } from "@material-ui/core";
-import React, {  useState } from "react";
+import React from "react";
 
 export interface Props {}
 
-function addUpTo(n: number) {
-	let total = 0;
-	for (let i = 1; i <= n; i++) {
-		total += i;
-	}
-	return total;
-}
-
 const Performace: React.FC<Props> = () => {
-	const [number, setNumber] = useState(0);
 
 	return (
 		<>

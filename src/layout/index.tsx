@@ -15,7 +15,6 @@ import {
 import React, { useState } from "react";
 import { styles } from "./styles";
 import MenuIcon from "@material-ui/icons/Menu";
-import MailIcon from "@material-ui/icons/Mail";
 import LooksOne from "@material-ui/icons/Filter1";
 import LooksTwo from "@material-ui/icons/Filter2";
 import LooksThree from "@material-ui/icons/Filter3";
@@ -34,7 +33,7 @@ import { Link as RouterLink } from "react-router-dom";
 const section = [
 	{ label: "Big O Notation", link: "/" },
 	{ label: "Problem Solving", link: "/" },
-	{ label: "three", link: "/" },
+	{ label: "Recursion", link: "/" },
 ];
 
 const subSection = [
@@ -44,9 +43,16 @@ const subSection = [
 	],
 	[
 		{ label: "Problem Solving", link: "/problem_solving" },
-		{ label: "Problem Solving Patterns", link: "/problem_solving_patterns" },
+		{ label: "Frequency Counter", link: "/frequency_counter" },
+		{ label: "Multiple Pointers", link: "/multiple_pointers" },
+		{ label: "Sliding Window", link: "/sliding_window" },
+		{ label: "Devide and Conquer", link: "/devide_and_conquer" },
+		{ label: "Exercises", link: "/exercises_problem_solving" },
 	],
-	[{ label: "subThree", link: "/" }],
+	[
+		{ label: "Recursion", link: "/recursion" },
+		{ label: "Exercises Easy", link: "/exercises_recursion_easy" },
+	],
 ];
 const icons = (key: string, index: number) => {
 	let icon = <LooksOne key={key} />;
