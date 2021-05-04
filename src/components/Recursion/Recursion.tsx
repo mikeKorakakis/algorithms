@@ -61,7 +61,6 @@ const Recursion: React.FC = () => {
                         console.log("All done");
                         return;
                     }
-                    console.log(num);
                     num--;
                     arguments.callee(num)
                 }

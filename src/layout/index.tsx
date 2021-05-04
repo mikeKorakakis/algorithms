@@ -34,6 +34,8 @@ const section = [
 	{ label: "Big O Notation", link: "/" },
 	{ label: "Problem Solving", link: "/" },
 	{ label: "Recursion", link: "/" },
+	{ label: "Searching Algorithms", link: "/" },
+	{ label: "Sorting Algorithms", link: "/" },
 ];
 
 const subSection = [
@@ -52,6 +54,13 @@ const subSection = [
 	[
 		{ label: "Recursion", link: "/recursion" },
 		{ label: "Exercises Easy", link: "/exercises_recursion_easy" },
+	],
+	[{ label: "Searching Algorithms", link: "/searching_algorithms" }],
+	[
+		{ label: "Bubble Sort", link: "/bubble_sort" },
+		{ label: "Selection Sort", link: "/selection_sort" },
+		{ label: "Insertion Sort", link: "/insertion_sort" },
+		{ label: "Insertion Selection Bubble Sort Comparison", link: "/insertion_selection_bubble_comparison" },
 	],
 ];
 const icons = (key: string, index: number) => {
@@ -92,11 +101,13 @@ const icons = (key: string, index: number) => {
 const Layout = ({ children }: any) => {
 	const useStyles = makeStyles(styles);
 	const classes = useStyles();
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState<any>({});
 
-	const handleClick = () => {
-		setOpen(!open);
+	const handleClick = (index: number) => {
+		let temp = !open[index];
+		setOpen({ ...open, [index]: temp });
 	};
+
 	return (
 		<div className={classes.root}>
 			<AppBar>
@@ -126,25 +137,32 @@ const Layout = ({ children }: any) => {
 									component={RouterLink}
 									to={sec.link}
 								>
-									<ListItem button onClick={handleClick}>
+									<ListItem
+										button
+										onClick={() => handleClick(index)}
+									>
 										<ListItemIcon>
 											<div>
 												{icons(`$icon${index}`, index)}
 											</div>
 										</ListItemIcon>
 										<ListItemText primary={sec.label} />
-										{open ? <ExpandLess /> : <ExpandMore />}
+										{open[index] ? (
+											<ExpandLess />
+										) : (
+											<ExpandMore />
+										)}
 									</ListItem>
 								</Link>
-								<Collapse
-									in={open}
-									timeout="auto"
-									unmountOnExit
-								>
-									<List component="div" disablePadding>
-										{subSection[index].map((subSec, i) => (
+								<List component="div" disablePadding>
+									{subSection[index].map((subSec, i) => (
+										<Collapse
+											in={open[index]}
+											timeout="auto"
+											unmountOnExit
+											key={`sublink${i}`}
+										>
 											<Link
-												key={`sublink${i}`}
 												className={classes.link}
 												component={RouterLink}
 												to={subSec.link}
@@ -161,9 +179,9 @@ const Layout = ({ children }: any) => {
 													/>
 												</ListItem>
 											</Link>
-										))}
-									</List>
-								</Collapse>
+										</Collapse>
+									))}
+								</List>
 							</div>
 						))}
 					</List>

@@ -14,6 +14,11 @@ import Exercises from "./components/ProblemSolving/Exercises";
 import Recursion from "./components/Recursion/Recursion";
 import ExercisesEasy from "./components/Recursion/ExercisesEasy";
 import ExercisesChallenging from "./components/Recursion/ExercisesChallenging";
+import SearchingAlgorithms from "./components/SearchingAlgorithms/SearchingAlgorithms";
+import BubbleSort from "./components/SortingAlgorithms/BubbleSort";
+import SelectionSort from "./components/SortingAlgorithms/SelectionSort";
+import InsertionSort from "./components/SortingAlgorithms/InsertionSort";
+import InsertionSelectionBubbleComp from "./components/SortingAlgorithms/InsertionSelectionBubbleComp";
 
 function App() {
 	return (
@@ -32,43 +37,58 @@ function App() {
 						component={FrequencyCounter}
 						exact
 					/>
-                    <Route
+					<Route
 						path="/multiple_pointers"
 						component={MultiplePointers}
 						exact
 					/>
-                       <Route
+					<Route
 						path="/sliding_window"
 						component={SlidingWindow}
 						exact
 					/>
-                     <Route
+					<Route
 						path="/devide_and_conquer"
 						component={DevideAndConquer}
 						exact
 					/>
-                     <Route
+					<Route
 						path="/exercises_problem_solving"
 						component={Exercises}
 						exact
 					/>
-                      <Route
-						path="/recursion"
-						component={Recursion}
-						exact
-					/>
-                           <Route
+					<Route path="/recursion" component={Recursion} exact />
+					<Route
 						path="/exercises_recursion_easy"
 						component={ExercisesEasy}
 						exact
 					/>
-                                 <Route
+					<Route
 						path="/exercises_recursion_challenging"
 						component={ExercisesChallenging}
 						exact
 					/>
-                    
-                    
+					<Route
+						path="/searching_algorithms"
+						component={SearchingAlgorithms}
+						exact
+					/>
+					<Route path="/bubble_sort" component={BubbleSort} exact />
+					<Route
+						path="/selection_sort"
+						component={SelectionSort}
+						exact
+					/>
+					<Route
+						path="/insertion_sort"
+						component={InsertionSort}
+						exact
+					/>
+					<Route
+						path="/insertion_selection_bubble_comparison"
+						component={InsertionSelectionBubbleComp}
+						exact
+					/>
 				</Layout>
 			</Switch>
 			<ToastContainer />

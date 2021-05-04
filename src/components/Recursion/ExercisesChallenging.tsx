@@ -188,6 +188,23 @@ const ExercisesChallenging: React.FC<Props> = () => {
                     }
                     `}
 				</FunctionExcecution>
+                <br></br>
+                <FunctionExcecution
+					inputCount={1}
+					defaultValues={['["car","taco","banana"]']}
+				>
+					{`
+    function capitalizeFirst (array) {
+        if (array.length === 1) {
+          return [array[0][0].toUpperCase() + array[0].substr(1)];
+        }
+        const res = arguments.callee(array.slice(0, -1));
+        const string = array.slice(array.length - 1)[0][0].toUpperCase() + array.slice(array.length-1)[0].substr(1);
+        res.push(string);
+        return res;
+      }
+                    `}
+				</FunctionExcecution>
 				<Typography variant="subtitle2" gutterBottom>
 					<p>nestedEvenSum</p>
 					<p>
@@ -313,15 +330,15 @@ var obj2 = {
 					defaultValues={['["i", "am", "learning", "recursion"]']}
 				>
 					{`
-    function capitalizeFirst (array) {
-        if (array.length === 1) {
-          return [array[0][0].toUpperCase() + array[0].substr(1)];
-        }
-        const res = arguments.callee(array.slice(0, -1));
-        const string = array.slice(array.length - 1)[0][0].toUpperCase() + array.slice(array.length-1)[0].substr(1);
-        res.push(string);
-        return res;
-      }
+                    function capitalizeWords (array) {
+                        if (array.length === 1) {
+                        return [array[0].toUpperCase()];
+                        }
+                        let res = arguments.callee(array.slice(0, -1));
+                        res.push(array.slice(array.length-1)[0].toUpperCase());
+                        return res;
+                    
+                    }
 `}
 				</FunctionExcecution>
 				<Typography variant="subtitle2" gutterBottom>
@@ -498,8 +515,8 @@ const obj = {
                     }
 `}
 				</FunctionExcecution>
-                <br></br>
-                <FunctionExcecution
+				<br></br>
+				<FunctionExcecution
 					inputCount={1}
 					defaultValues={[
 						`{
@@ -529,7 +546,7 @@ const obj = {
                                         stringsArr.push(o[key]);
                                     }
                                     else if(typeof o[key] === 'object') {
-                                        return arguments.callee(o[key]);
+                                        return gatherStrings(o[key]);
                                     }
                                 }
                             }
@@ -540,8 +557,8 @@ const obj = {
                         }
 `}
 				</FunctionExcecution>
-                <br></br>
-                <FunctionExcecution
+				<br></br>
+				<FunctionExcecution
 					inputCount={1}
 					defaultValues={[
 						`{
