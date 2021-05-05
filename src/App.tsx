@@ -19,6 +19,7 @@ import BubbleSort from "./components/SortingAlgorithms/BubbleSort";
 import SelectionSort from "./components/SortingAlgorithms/SelectionSort";
 import InsertionSort from "./components/SortingAlgorithms/InsertionSort";
 import InsertionSelectionBubbleComp from "./components/SortingAlgorithms/InsertionSelectionBubbleComp";
+import MergeSort from "./components/SortingAlgorithms/MergeSort";
 
 function App() {
 	return (
@@ -89,6 +90,7 @@ function App() {
 						component={InsertionSelectionBubbleComp}
 						exact
 					/>
+					<Route path="/merge_sort" component={MergeSort} exact />
 				</Layout>
 			</Switch>
 			<ToastContainer />

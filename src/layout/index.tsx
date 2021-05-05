@@ -61,6 +61,7 @@ const subSection = [
 		{ label: "Selection Sort", link: "/selection_sort" },
 		{ label: "Insertion Sort", link: "/insertion_sort" },
 		{ label: "Insertion Selection Bubble Sort Comparison", link: "/insertion_selection_bubble_comparison" },
+		{ label: "MergeSort", link: "/merge_sort" },
 	],
 ];
 const icons = (key: string, index: number) => {
