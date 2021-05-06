@@ -2,7 +2,7 @@ import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import FunctionExcecution from "../common/FunctionExecution";
 
-const SearchingAlgorithms: React.FC = () => {
+const DataStructures: React.FC = () => {
 	return (
 		<>
 			<Typography variant="h5" gutterBottom>
@@ -280,4 +280,4 @@ const SearchingAlgorithms: React.FC = () => {
 	);
 };
 
-export default SearchingAlgorithms;
+export default DataStructures;

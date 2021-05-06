@@ -58,7 +58,7 @@ const BubbleSort: React.FC = () => {
 					<ul>
 						<li>
 							The build-in sort method accepts an optional
-							comparator funciton
+							comparator function
 						</li>
 						<li>
 							You can use this comparator function to tell

@@ -36,6 +36,7 @@ const section = [
 	{ label: "Recursion", link: "/" },
 	{ label: "Searching Algorithms", link: "/" },
 	{ label: "Sorting Algorithms", link: "/" },
+	{ label: "Data Structures", link: "/" },
 ];
 
 const subSection = [
@@ -61,8 +62,16 @@ const subSection = [
 		{ label: "Selection Sort", link: "/selection_sort" },
 		{ label: "Insertion Sort", link: "/insertion_sort" },
 		{ label: "Insertion Selection Bubble Sort Comparison", link: "/insertion_selection_bubble_comparison" },
-		{ label: "MergeSort", link: "/merge_sort" },
+		{ label: "Merge Sort", link: "/merge_sort" },
+		{ label: "Quick Sort", link: "/quick_sort" },
+		{ label: "Radix Sort", link: "/radix_sort" },
 	],
+    [
+        {label: "Data Structures", link: "/data_structures"},
+        {label: "Singly Linked Lists", link: "/singly_linked_lists"},
+        {label: "Doubly Linked Lists", link: "/doubly_linked_lists"},
+        {label: "Stacks and Queues", link: "/stacks_queues"}
+    ]
 ];
 const icons = (key: string, index: number) => {
 	let icon = <LooksOne key={key} />;

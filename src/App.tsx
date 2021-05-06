@@ -20,6 +20,12 @@ import SelectionSort from "./components/SortingAlgorithms/SelectionSort";
 import InsertionSort from "./components/SortingAlgorithms/InsertionSort";
 import InsertionSelectionBubbleComp from "./components/SortingAlgorithms/InsertionSelectionBubbleComp";
 import MergeSort from "./components/SortingAlgorithms/MergeSort";
+import QuickSort from "./components/SortingAlgorithms/QuickSort";
+import RadixSort from "./components/SortingAlgorithms/RadixSort";
+import DataStructures from "./components/DataStructures/DataStructures";
+import SinglyLinkedLists from "./components/DataStructures/SinglyLinkedLists";
+import DoublyLinkedLists from "./components/DataStructures/DoublyLinkedLists";
+import StacksQueues from './components/DataStructures/StacksQueues';
 
 function App() {
 	return (
@@ -91,6 +97,28 @@ function App() {
 						exact
 					/>
 					<Route path="/merge_sort" component={MergeSort} exact />
+					<Route path="/quick_sort" component={QuickSort} exact />
+					<Route path="/radix_sort" component={RadixSort} exact />
+					<Route
+						path="/data_structures"
+						component={DataStructures}
+						exact
+					/>
+					<Route
+						path="/singly_linked_lists"
+						component={SinglyLinkedLists}
+						exact
+					/>
+					<Route
+						path="/doubly_linked_lists"
+						component={DoublyLinkedLists}
+						exact
+					/>
+                    <Route
+						path="/stacks_queues"
+						component={StacksQueues}
+						exact
+					/>
 				</Layout>
 			</Switch>
 			<ToastContainer />

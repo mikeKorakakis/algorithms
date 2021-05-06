@@ -40,6 +40,12 @@ const MergeSort: React.FC = () => {
 					<br></br>[ 3, 8 ] [ 4, 5 ] [ 6, 7 ] [ 1, 2 ]<br></br>[ 3, 4,
 					5, 8 ] [ 1, 2, 6, 7 ]<br></br>[ 1, 2, 3, 4, 5, 6, 7, 8 ]
 				</Typography>
+                <br></br>
+				<iframe
+                    title="merge sort"
+					style={{ width: "100%", height: "500px", scale: "0.5" }}
+					src="https://visualgo.net/en/sorting"
+				></iframe>
 				<br></br>
 				<Typography variant="subtitle2" gutterBottom>
 					<strong>Merging Arrays </strong>
@@ -88,43 +94,111 @@ const MergeSort: React.FC = () => {
 					</ul>
 				</Typography>
 				<FunctionExcecution
-					inputCount={1}
-					defaultValues={["[10,15,40,20,35]"]}
+					inputCount={2}
+					defaultValues={["[1,3,5]", "[2,4,6]"]}
 				>
 					{`
-                    function selectionSort(arr){
-                        for(var i = 0 ; i <  arr.length; i++){
-                            var min = i
-                            for( var j = i; j < arr.length; j++ ){
-                             
-                                if(arr[j] < arr[min]){
-
-                                    min = j
-                                    noSwaps = false;
-                                  
-                                }
-                            }
-                            if( i !== min){
-                            var temp = arr[min]
-                            arr[min] = arr[i]
-                            arr[i] = temp;
+                    function mergeArrays(arr1, arr2){
+                        var i = 0;
+                        var j = 0;
+                        var arr = [];
+                        while ( i < arr1.length &&  j < arr2.length){
+                            if( arr1[i] < arr2[j]){
+                                arr.push(arr1[i])
+                                i++;
+                            }else{
+                                arr.push(arr2[j])
+                                j++;
                             }
                         }
+
+                        while(i < arr1.length){
+                            arr.push(arr1[i])
+                            i++
+                        }
+
+                        while(j < arr2.length){
+                            arr.push(arr2[j])
+                            j++
+                        }
+
                         return arr
                     }
 `}
 				</FunctionExcecution>
-				<br></br>
-				<iframe
-					style={{ width: "100%", height: "500px", scale: "0.5" }}
-					src="https://visualgo.net/en/sorting"
-				></iframe>
+				<Typography variant="subtitle2" gutterBottom>
+					<strong>Merge Sort Pseudocode </strong>
+					<ul>
+						<li>
+							Break up the array into halves until you have arrays
+							that are empty or have one element.
+						</li>
+						<li>
+							Once you have smaller sorted arrays, merge those
+							arrays with other sorted arrays until you are back at the full
+                            length of the array.
+						</li>
+                        <li>Once the array has been merged back together, return the merged (and sorted!) array.</li>
+					</ul>
+				</Typography>
+                <FunctionExcecution
+					inputCount={1}
+					defaultValues={["[1,7,5,6,9,4,3]"]}
+				>
+					{`
+                    function mergeSort(arr){
+                            function mergeArrays(arr1, arr2){
+                                var i = 0;
+                                var j = 0;
+                                var result = [];
+                                while ( i < arr1.length &&  j < arr2.length){
+                                    if( arr1[i] < arr2[j]){
+                                        result.push(arr1[i])
+                                        i++;
+                                    }else{
+                                        result.push(arr2[j])
+                                        j++;
+                                    }
+                                }
+
+                                while(i < arr1.length){
+                                    result.push(arr1[i])
+                                    i++
+                                }
+
+                                while(j < arr2.length){
+                                    result.push(arr2[j])
+                                    j++
+                                }
+
+                                return result
+                            }
+                        
+
+                        var res = []
+                        if (arr.length <=1) return arr
+                       let mid = Math.floor(arr.length/2)
+                       let left = arguments.callee(arr.slice(0, mid));
+                       let right = arguments.callee(arr.slice(mid));
+
+                       return mergeArrays(left, right)
+                       
+
+                        }
+
+                    
+`}
+				</FunctionExcecution>
+
+			
 
 				<Typography variant="subtitle2" gutterBottom>
-					<strong>Bubble Sort Complexity</strong>
+					<strong>Merge Sort Big O</strong>
 					<ul>
-						<li>normally O(n^2)</li>
-						<li>good if you don't want many swaps</li>
+						<li>Time Complexity (Best) O(n*log(n))</li>
+						<li>Time Complexity (Average) O(n*log(n))</li>
+						<li>Time Complexity (Worst) O(n*log(n))</li>
+						<li>Space Complexity O(n)</li>
 					</ul>
 				</Typography>
 			</Box>

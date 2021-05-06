@@ -17,3 +17,7 @@ pre{
     font-weight: bold;
 }
 
+table.mytable td {
+    border: 1px solid black;
+    width: 50px;
+}

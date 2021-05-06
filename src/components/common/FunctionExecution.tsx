@@ -46,7 +46,7 @@ const FunctionExcecution: React.FC<Props> = ({ inputCount = 2, defaultValues, ch
 							<TextField
 								key={i}
 								label={`Input ${i}`}
-								style={{ width: "100px", margin: "20px" }}
+								style={{ width: "auto", margin: "20px" }}
 								value={values[i]}
 								onChange={(event) => {
 									values[i] = event?.target?.value;
