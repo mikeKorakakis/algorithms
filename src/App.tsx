@@ -25,7 +25,11 @@ import RadixSort from "./components/SortingAlgorithms/RadixSort";
 import DataStructures from "./components/DataStructures/DataStructures";
 import SinglyLinkedLists from "./components/DataStructures/SinglyLinkedLists";
 import DoublyLinkedLists from "./components/DataStructures/DoublyLinkedLists";
-import StacksQueues from './components/DataStructures/StacksQueues';
+import StacksQueues from "./components/DataStructures/StacksQueues";
+import BinarySearchTrees from "./components/DataStructures/BinarySearchTrees";
+import BinaryHeaps from "./components/DataStructures/BinaryHeaps";
+import HashTables from './components/DataStructures/HashTable';
+import Graphs from './components/DataStructures/Graphs';
 
 function App() {
 	return (
@@ -114,11 +118,19 @@ function App() {
 						component={DoublyLinkedLists}
 						exact
 					/>
-                    <Route
+					<Route
 						path="/stacks_queues"
 						component={StacksQueues}
 						exact
 					/>
+					<Route
+						path="/binary_search_trees"
+						component={BinarySearchTrees}
+						exact
+					/>
+					<Route path="/binary_heaps" component={BinaryHeaps} exact />
+					<Route path="/hash_tables" component={HashTables} exact />
+					<Route path="/graphs" component={Graphs} exact />
 				</Layout>
 			</Switch>
 			<ToastContainer />

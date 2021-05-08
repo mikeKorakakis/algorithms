@@ -16,7 +16,8 @@ export const styles = () => ({
     },
     main: {
       flex: 1,
-      background: "#f7f5f5",
+    //   background: "#f7f5f5",
+      background: "#fff",
       color: "black",
       padding: "60px"
     },

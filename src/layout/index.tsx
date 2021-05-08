@@ -70,7 +70,11 @@ const subSection = [
         {label: "Data Structures", link: "/data_structures"},
         {label: "Singly Linked Lists", link: "/singly_linked_lists"},
         {label: "Doubly Linked Lists", link: "/doubly_linked_lists"},
-        {label: "Stacks and Queues", link: "/stacks_queues"}
+        {label: "Stacks and Queues", link: "/stacks_queues"},
+        {label: "Binary Search Trees", link: "/binary_search_trees"},
+        {label: "Binary Heaps", link: "/binary_heaps"},
+        {label: "Hash Tables", link: "/hash_tables"},
+        {label: "Graphs", link: "/graphs"},
     ]
 ];
 const icons = (key: string, index: number) => {
