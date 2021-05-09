@@ -30,6 +30,8 @@ import BinarySearchTrees from "./components/DataStructures/BinarySearchTrees";
 import BinaryHeaps from "./components/DataStructures/BinaryHeaps";
 import HashTables from './components/DataStructures/HashTable';
 import Graphs from './components/DataStructures/Graphs';
+import Dijkstra from './components/Dijkstra/Dijkstra';
+import DynamicProgramming from './components/Dynamic Programming/DynamicProgramming';
 
 function App() {
 	return (
@@ -131,6 +133,8 @@ function App() {
 					<Route path="/binary_heaps" component={BinaryHeaps} exact />
 					<Route path="/hash_tables" component={HashTables} exact />
 					<Route path="/graphs" component={Graphs} exact />
+					<Route path="/dijkstra" component={Dijkstra} exact />
+					<Route path="/dynamic_programming" component={DynamicProgramming} exact />
 				</Layout>
 			</Switch>
 			<ToastContainer />

@@ -37,6 +37,8 @@ const section = [
 	{ label: "Searching Algorithms", link: "/" },
 	{ label: "Sorting Algorithms", link: "/" },
 	{ label: "Data Structures", link: "/" },
+	{ label: "Dijksta's Algorithm", link: "/" },
+	{ label: "Dynamic Programming", link: "/" },
 ];
 
 const subSection = [
@@ -61,21 +63,26 @@ const subSection = [
 		{ label: "Bubble Sort", link: "/bubble_sort" },
 		{ label: "Selection Sort", link: "/selection_sort" },
 		{ label: "Insertion Sort", link: "/insertion_sort" },
-		{ label: "Insertion Selection Bubble Sort Comparison", link: "/insertion_selection_bubble_comparison" },
+		{
+			label: "Insertion Selection Bubble Sort Comparison",
+			link: "/insertion_selection_bubble_comparison",
+		},
 		{ label: "Merge Sort", link: "/merge_sort" },
 		{ label: "Quick Sort", link: "/quick_sort" },
 		{ label: "Radix Sort", link: "/radix_sort" },
 	],
-    [
-        {label: "Data Structures", link: "/data_structures"},
-        {label: "Singly Linked Lists", link: "/singly_linked_lists"},
-        {label: "Doubly Linked Lists", link: "/doubly_linked_lists"},
-        {label: "Stacks and Queues", link: "/stacks_queues"},
-        {label: "Binary Search Trees", link: "/binary_search_trees"},
-        {label: "Binary Heaps", link: "/binary_heaps"},
-        {label: "Hash Tables", link: "/hash_tables"},
-        {label: "Graphs", link: "/graphs"},
-    ]
+	[
+		{ label: "Data Structures", link: "/data_structures" },
+		{ label: "Singly Linked Lists", link: "/singly_linked_lists" },
+		{ label: "Doubly Linked Lists", link: "/doubly_linked_lists" },
+		{ label: "Stacks and Queues", link: "/stacks_queues" },
+		{ label: "Binary Search Trees", link: "/binary_search_trees" },
+		{ label: "Binary Heaps", link: "/binary_heaps" },
+		{ label: "Hash Tables", link: "/hash_tables" },
+		{ label: "Graphs", link: "/graphs" },
+	],
+	[{ label: "Dijstra's Algorithm", link: "/dijkstra" }],
+	[{ label: "Dynamic Programming", link: "/dynamic_programming" }],
 ];
 const icons = (key: string, index: number) => {
 	let icon = <LooksOne key={key} />;
