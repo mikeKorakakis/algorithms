@@ -32,12 +32,14 @@ import HashTables from './components/DataStructures/HashTable';
 import Graphs from './components/DataStructures/Graphs';
 import Dijkstra from './components/Dijkstra/Dijkstra';
 import DynamicProgramming from './components/Dynamic Programming/DynamicProgramming';
+import { Home } from './components/Home/index';
 
 function App() {
 	return (
 		<main>
 			<Switch>
 				<Layout>
+					<Route path="/home" component={Home} exact />
 					<Route path="/bigo" component={BigO} exact />
 					<Route path="/performance" component={Performace} exact />
 					<Route

@@ -21,3 +21,13 @@ table.mytable td {
     border: 1px solid black;
     width: 50px;
 }
+
+.container {
+    width: 250px;
+    height: 200px;
+    border: 1px solid #720570;
+}
+
+.bar {
+    fill: #720570;
+}
